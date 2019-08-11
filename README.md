@@ -11,7 +11,7 @@
 
 ```bash
 pip install virtualenv
-cd flask-tutorial
+cd flask_server
 virtualenv venv
 venv\Scripts\activate
 ```
@@ -26,7 +26,7 @@ pip install Flask
 
 ```bash
 # 설정(window cmd)
-# flask-tutorial\
+# flask_server\
 set FLASK_APP=flaskr
 
 # 실행
