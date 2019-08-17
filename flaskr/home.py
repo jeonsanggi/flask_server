@@ -3,6 +3,7 @@ from flask import(
 )
 from werkzeug.exceptions import abort
 from werkzeug import secure_filename
+from flaskr.module import dbModule
 
 bp = Blueprint('home', __name__ )
 
@@ -21,5 +22,13 @@ def search():
 	result = request.form
 	product_name = result['product_name']
 
-	
-	return product_name
+	db_class = dbModule.Database()
+	sql = "SELECT Brand, Product, Color, Price, Image \
+		   FROM deepstick.products \
+		   WHERE Product='" + product_name + "'"
+	row = db_class.executeAll(sql)
+	print(row)
+	print("row 길이: " ,len(row))
+	return render_template('/product.html',
+							resultData=row,
+							size=len(row))

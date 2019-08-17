@@ -36,8 +36,9 @@ def insert():
 def select():
     db_class = dbModule.Database()
 
-    sql      = "SELECT idx, test \
-                FROM testDB.testTable"
+    sql = "SELECT Brand, Product, Color, Price, Image \
+		   FROM deepstick.products \
+		   WHERE Product='" + "루쥬 쀠르 꾸뛰르" + "'"
     row      = db_class.executeAll(sql)
 
     print(row)

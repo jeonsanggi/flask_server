@@ -5,7 +5,7 @@ class Database():
         self.db = pymysql.connect(host='localhost',
                                 user='root',
                                 password='1234',
-                                db='testdb',
+                                db='deepstick',
                                 charset='utf8')
         self.cursor = self.db.cursor(pymysql.cursors.DictCursor)
     def execute(self, query, args={}):
