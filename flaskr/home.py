@@ -15,3 +15,11 @@ def image():
 	f = request.files['file']
 	# f.save(secure_filename('../../test.png'))
 	return secure_filename(f.filename)
+
+@bp.route('/search', methods=['POST'])
+def search():
+	result = request.form
+	product_name = result['product_name']
+
+	
+	return product_name
