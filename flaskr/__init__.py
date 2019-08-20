@@ -17,10 +17,6 @@ def create_app(test_config=None):
     # home에서 정의한 bluepoint를 등록
 	app.register_blueprint(home.bp)
 
-	from . import product
-	# home에서 정의한 bluepoint를 등록
-	app.register_blueprint(product.bp)
-
 	from . import test
     # home에서 정의한 bluepoint를 등록
 	app.register_blueprint(test.bp)

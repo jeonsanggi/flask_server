@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask import current_app as current_app
 
 from flaskr.module import dbModule
+from flaskr.module import Userlog
 
 bp = Blueprint('test', __name__, url_prefix='/test')
 
@@ -69,3 +70,11 @@ def update():
                             result=None,
                             resultData=None,
                             resultUPDATE=row[0])
+
+@bp.route('/log', methods=['GET'])
+def log():
+    userlog = Userlog.UserLog()
+
+    recommand = userlog.recommand(0)
+    print(recommand)
+    return "sfdsf"

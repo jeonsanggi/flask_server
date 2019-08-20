@@ -20,12 +20,12 @@ def image():
 @bp.route('/search', methods=['POST'])
 def search():
 	result = request.form
-	product_name = result['product_name']
+	color_name = result['color_name']
 
 	db_class = dbModule.Database()
 	sql = "SELECT Brand, Product, Color, Price, Image \
 		   FROM deepstick.products \
-		   WHERE Product='" + product_name + "'"
+		   WHERE Product='" + color_name + "'"
 	row = db_class.executeAll(sql)
 	print(row)
 	print("row 길이: " ,len(row))
