@@ -17,13 +17,9 @@ def create_app(test_config=None):
     # home에서 정의한 bluepoint를 등록
 	app.register_blueprint(home.bp)
 
-	from . import test
-    # home에서 정의한 bluepoint를 등록
-	app.register_blueprint(test.bp)
-
-	from . import cm
+	from . import user
 	# home에서 정의한 bluepoint를 등록
-	app.register_blueprint(cm.bp)
+	app.register_blueprint(user.bp)
 
 	app.add_url_rule('/', endpoint='index')
 

@@ -51,9 +51,9 @@ class UserLog():
         self.algo = surprise.KNNBasic(sim_options=option)
         self.algo.fit(trainset)
 
-    def recommand(self, who):
-        recommand = list()
-        # print("-----name_list in recommand-----:", self.name_list)
+    def recommend(self, who):
+        recommend = list()
+        # print("-----name_list in recommend-----:", self.name_list)
         index = self.name_list.index(int(who))
         # print('user_index',index)
 
@@ -68,5 +68,5 @@ class UserLog():
             cos_id=self.data.df[(self.data.df["rating"]==max_rating)&(self.data.df['Nickname']==r1)]["ProductIdx"].values
 
             for cos_item in cos_id:
-                recommand.append(self.cos_list[cos_item])
-        return recommand
+                recommend.append(self.cos_list[cos_item])
+        return recommend
