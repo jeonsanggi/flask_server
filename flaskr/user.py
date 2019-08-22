@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, flash, redirect, url_for
+from flask import Blueprint, request, render_template, flash, redirect, url_for, session
 from flask import current_app as current_app
 
 from flaskr.module import dbModule
@@ -11,7 +11,7 @@ def log():
     userlog = Userlog.UserLog()
     db_class = dbModule.Database()
 
-    recommend = userlog.recommend(0)
+    recommend = userlog.recommend(session['user_id'])
     print("-------------사용자 추천--------")
     data=[]
     for color in recommend:

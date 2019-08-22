@@ -1,19 +1,21 @@
 from flask import(
-	Blueprint, flash, g, redirect, render_template, request, url_for
+	Blueprint, flash, g, redirect, render_template, request, url_for, session
 )
 from werkzeug.exceptions import abort
 from werkzeug import secure_filename
 from flaskr.module import dbModule
 from flaskr.module import CosSimilarity
 from flaskr.module import ReviewCount
-from flaskr.module import WordCloud
+from flaskr.auth import login_required
+# from flaskr.module import WordCloud
 import pandas as pd
 
 bp = Blueprint('home', __name__ )
 
 @bp.route('/')
-def home():
-	return render_template('home.html')
+def index():
+	return render_template('home.html',
+							g=session)
 
 @bp.route('/image', methods=['POST'])
 def image():
@@ -31,7 +33,6 @@ def single(data):
 		   WHERE Color='" + data + "'"
 
 	row = db_class.executeOne(sql)
-
 	sql = "SELECT Brand, Color, Date, Product, Review \
 		   FROM deepstick.review \
 		   WHERE Color='" + row['Color'] + "'"
@@ -42,15 +43,15 @@ def single(data):
 		re_class = ReviewCount.ReviewCnt()
 		re_class.draw(review, row['Color'])
 
-	sql = "SELECT Brand, Color, Date, Product, Review \
-		   FROM deepstick.review \
-		   WHERE Product='" + row['Product'] + "'"
-
-	row_wc = db_class.executeAll(sql)
-	if row_wc:
-		re_product = pd.DataFrame(row_wc)
-		wc_class = WordCloud.WordCloud()
-		wc_class.Review_cloud(re_product)
+	# sql = "SELECT Brand, Color, Date, Product, Review \
+	# 	   FROM deepstick.review \
+	# 	   WHERE Product='" + row['Product'] + "'"
+	#
+	# row_wc = db_class.executeAll(sql)
+	# if row_wc:
+	# 	re_product = pd.DataFrame(row_wc)
+	# 	wc_class = WordCloud.WordCloud()
+	# 	wc_class.Review_cloud(re_product)
 
 	return render_template('/single.html',
 							resultData=row,

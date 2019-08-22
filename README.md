@@ -20,6 +20,9 @@ venv\Scripts\activate
 
 ```bash
 pip install Flask
+pip install Pandas
+pip install numpy
+conda install -c conda-forge scikit-surprise
 ```
 
 #### Start
