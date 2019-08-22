@@ -209,34 +209,25 @@
 
   <script>
     $('.btn-custom').click(function(event){
-      product = 'a#product' + event.target.id
-      color = "h4#Color" + event.target.id
-      price = "span#Price" + event.target.id
-      brand = "a#brand" + event.target.id
-      image = "a#Image" + event.target.id
+      // var product = 'a#product' + event.target.id;
+      var color = "h4#Color" + event.target.id;
+      // var price = "span#Price" + event.target.id;
+      // var brand = "a#brand" + event.target.id;
+      // var image = "a#Image" + event.target.id;
 
-      alert($(color).text())
-      alert($(price).text())
-      alert($(brand).text())
-      alert($(image).attr('style').slice(22,-2))
-      product = $(product).text()
-      color = $(color).text()
-      price = $(price).text()
-      brand = $(brand).text()
-      image = $(image).attr('style').slice(22,-2)
-      $.ajax({
-        url : '/single',
-        type : 'POST',
-        data : {
-          product : product,
-          color : color,
-          price : price,
-          brand : brand,
-          image : image
-        },
-      }).done(function(result){
-        
-      })
+      // alert($(color).text())
+      // alert($(price).text())
+      // alert($(brand).text())
+      // alert($(image).attr('style').slice(22,-2))
+      // var product = $(product).text();
+      var color = $(color).text();
+      // var price = $(price).text();
+      // var brand = $(brand).text();
+      // var image = $(image).attr('style').slice(22,-2);
+      // var data = {};
+
+      window.location.href = '/single/' + color
+
     })
     // alert($('a.Product').attr('href'))
 
