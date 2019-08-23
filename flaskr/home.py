@@ -33,29 +33,23 @@ def single(data):
 		   WHERE Color='" + data + "'"
 
 	row = db_class.executeOne(sql)
-	sql = "SELECT Brand, Color, Date, Product, Review \
+	print("-----row-----",row)
+	sql = "SELECT Brand, Color, remonth, Product, Review \
 		   FROM deepstick.review \
 		   WHERE Color='" + row['Color'] + "'"
 
 	row_review = db_class.executeAll(sql)
-	if row_review:
+	print('----row_review------',row_review)
+	if row_review and row_review[0]['remonth'] is not None:
 		review = pd.DataFrame(row_review)
 		re_class = ReviewCount.ReviewCnt()
 		re_class.draw(review, row['Color'])
 
-	# sql = "SELECT Brand, Color, Date, Product, Review \
-	# 	   FROM deepstick.review \
-	# 	   WHERE Product='" + row['Product'] + "'"
-	#
-	# row_wc = db_class.executeAll(sql)
-	# if row_wc:
-	# 	re_product = pd.DataFrame(row_wc)
-	# 	wc_class = WordCloud.WordCloud()
-	# 	wc_class.Review_cloud(re_product)
+	path = '../static/images/'+row['Color']+'.png'
 
 	return render_template('/single.html',
 							resultData=row,
-							resultFigPath='../static/images/'+row['Color']+'.png')
+							resultFigPath=path)
 
 @bp.route('/search', methods=['POST'])
 def search():

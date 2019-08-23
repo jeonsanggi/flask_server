@@ -8,13 +8,7 @@ mpl.rc('font',family=font_name)
 class ReviewCnt():
     def draw(self, Review,Color):
         print(Review)
-        data = list(Review['Date'])
-        month=[]
-
-        for i in range(0,len(data)):
-
-            month_tmp = data[i].split('.')
-            month.append(month_tmp[1])
+        month = list(Review['remonth'])
 
         Jan=month.count('01')
         Feb=month.count('02')

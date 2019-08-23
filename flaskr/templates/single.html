@@ -189,16 +189,18 @@
           <div class="col-sm-12 col-md-12 col-lg-12">
 
             <div class="row gallery-item">
-              <div class="col-md-3">
-                <a href="{{resultFigPath}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="{{resultFigPath}}" class="img-responsive" alt="img">
-							</a>
-              </div>
-              <div class="col-md-3">
-                <a href="../static/Appland/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="../static/Appland/img/works/2.jpg" class="img-responsive" alt="img">
-							</a>
-              </div>
+              <!-- {% if resultFigPath %} -->
+                <div class="col-md-3">
+                  <a href="{{resultFigPath}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+  								<img src="{{resultFigPath}}" class="img-responsive" alt="img">
+  							</a>
+                </div>
+                <div class="col-md-3">
+                  <a href="../static/Appland/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+  								<img src="../static/Appland/img/works/2.jpg" class="img-responsive" alt="img">
+  							</a>
+                </div>
+              <!-- {% endif %} -->
             </div>
 
           </div>
