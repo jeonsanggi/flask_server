@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DeepStick</title>
+    <title>Stickers</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -84,7 +84,7 @@
                   <div class="blog-entry ftco-animate d-md-flex">
   										<a class="img img-2" id="Image2" style="background-image: url({{resultData[2].Image}});"></a>
   										<div class="text text-2 pl-md-4">
-  				              <h3 class="mb-2"><a id="product2">{{resultData[6].Product}}<h4 id="Color2">{{resultData[2].Color}}</h4></a></h3>
+  				              <h3 class="mb-2"><a id="product2">{{resultData[2].Product}}<h4 id="Color2">{{resultData[2].Color}}</h4></a></h3>
   				              <div class="meta-wrap">
   												<p class="meta">
   				              		<span id="Price2"><i class="icon-calendar mr-2"></i>{{resultData[2].Price}}원</span>
@@ -126,7 +126,7 @@
     $('.btn-custom').click(function(event){
       var color = "h4#Color" + event.target.id;
       var color = $(color).text();
-    
+
       window.location.href = '/single/' + color
 
     })

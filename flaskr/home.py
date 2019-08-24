@@ -28,7 +28,7 @@ def single(data):
 	print('----single----')
 	# print('-----',request.args.get('product'),'------')
 	db_class = dbModule.Database()
-	sql = "SELECT Brand, Product, Color, Price, Image, colorpower, spread, keep, moisture \
+	sql = "SELECT Brand, Product, Color, Price, Image, R, G, B, colorpower, spread, keep, moisture \
 		   FROM deepstick.products \
 		   WHERE Color='" + data + "'"
 
@@ -45,11 +45,16 @@ def single(data):
 		re_class = ReviewCount.ReviewCnt()
 		re_class.draw(review, row['Color'])
 
-	path = '../static/images/'+row['Color']+'.png'
-
+		Countpath = '../static/images/'+row['Color']+'.png'
+		WCpath = '../static/images/wordcloud/'+row['Product']+'.png'
+	else:
+		Countpath = False
+		WCpath = False
+	print("wcpath------", WCpath)
 	return render_template('/single.html',
 							resultData=row,
-							resultFigPath=path)
+							resultFigPath=Countpath,
+							resultWCPath=WCpath)
 
 @bp.route('/search', methods=['POST'])
 def search():

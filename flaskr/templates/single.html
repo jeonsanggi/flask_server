@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DeepStick</title>
+  <title>Stickers</title>
 
   <!-- css -->
   <link href="../static/Appland/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -23,8 +23,6 @@
     .poll_all{
       position: relative;
       padding-bottom: 35px;
-      border-bottom: 1px solid #ddd;
-
     }
     .poll_all .poll_type2{
       position: relative;
@@ -71,7 +69,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
           <a class="navbar-brand" href="/">
-                    <img src="../static/Appland/img/logo.png" alt="" width="150" height="40" />
+                    <img src="../static/images/stickers_log.png" alt="" width="150" height="40" />
                 </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,9 +94,9 @@
 
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6">
-
               <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
                 <img src={{resultData.Image}} class="img-responsive" alt="" />
+                <div style="position: absolute; display: block; height: 20%; width: 100%; background-color: rgb({{resultData.R}}, {{resultData.G}}, {{resultData.B}});"></div>
               </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 slogan">
@@ -183,24 +181,28 @@
     <section id="works" class="home-section text-center">
       <div class="container">
         <div class="row text-center heading">
-          <h3>Screenshots</h3>
+          <h3>Review</h3>
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
 
             <div class="row gallery-item">
-              <!-- {% if resultFigPath %} -->
-                <div class="col-md-3">
+              {% if resultFigPath %}
+                <div class="col-md-3" style="width: 50%">
+                  <p>월별 리뷰 수</p>
                   <a href="{{resultFigPath}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
   								<img src="{{resultFigPath}}" class="img-responsive" alt="img">
   							</a>
                 </div>
-                <div class="col-md-3">
-                  <a href="../static/Appland/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-  								<img src="../static/Appland/img/works/2.jpg" class="img-responsive" alt="img">
+              {% endif %}
+              {% if resultWCPath %}
+                <p>리뷰 키워드</p>
+                <div class="col-md-3" style="width: 50%">
+                  <a href="{{resultWCPath}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+  								<img src="{{resultWCPath}}" class="img-responsive" alt="img">
   							</a>
                 </div>
-              <!-- {% endif %} -->
+              {% endif %}
             </div>
 
           </div>

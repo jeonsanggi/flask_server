@@ -1,13 +1,54 @@
-{% block header %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background: #f8f8f8;
+        padding: 60px 0;
+    }
+
+    #login-form > div {
+        margin: 15px 0;
+    }
+
+</style>
+
+<div class="container">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin : 0 auto;">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">Stickers Login</div>
+            </div>
+            <div class="panel-body">
+                <form id="login-form" method="post">
+                    <div>
+                        <input type="text"id="username" class="form-control" name="username" placeholder="Username" autofocus>
+                    </div>
+                    <div>
+                        <input type="password" id="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div>
+                        <button type="submit" class="form-control btn btn-primary">로그인</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- {% block header %}
   <h1>{% block title %}Log In{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  <form method="post">
+  <form id="login-form" method="post">
     <label for="username">Username</label>
     <input name="username" id="username" required>
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
     <input type="submit" value="Log In">
   </form>
-{% endblock %}
+{% endblock %} -->

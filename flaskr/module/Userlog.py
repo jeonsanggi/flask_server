@@ -11,7 +11,7 @@ class UserLog():
         warnings.filterwarnings('ignore')
         with open('./LogDic.pickle', 'rb') as f:
             df_to_dict = pickle.load(f)
-        # print("----------Let's dictionary----------")
+        print("----------Let's dictionary----------", df_to_dict)
         cos_set = set()
         self.name_list = []
         for user_key in df_to_dict:

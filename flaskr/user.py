@@ -17,6 +17,8 @@ def log():
     for color in recommend:
         sql = "SELECT Brand, Product, Color, Price, Image FROM deepstick.products WHERE Color='" + color + "'"
         row = db_class.executeOne(sql)
+        if not row:
+            continue
         data.append(row)
 
     return render_template('/user.html',
