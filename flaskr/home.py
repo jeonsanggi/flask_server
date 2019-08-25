@@ -16,7 +16,6 @@ bp = Blueprint('home', __name__ )
 def index():
 	return render_template('home.html',
 							g=session)
-
 @bp.route('/image', methods=['POST'])
 def image():
 	f = request.files['file']
