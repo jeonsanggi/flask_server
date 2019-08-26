@@ -25,7 +25,6 @@ def image():
 @bp.route('/single/<data>')
 def single(data):
 	print('----single----')
-	# print('-----',request.args.get('product'),'------')
 	db_class = dbModule.Database()
 	sql = "SELECT Brand, Product, Color, Price, Image, R, G, B, colorpower, spread, keep, moisture \
 		   FROM deepstick.products \
