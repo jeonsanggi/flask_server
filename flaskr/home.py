@@ -69,19 +69,19 @@ def search():
 	label_one = str(row['label_one'])
 	label_two = str(int(row['label_two']))
 
-	sql = "SELECT Brand, Product, Color, Price, Image, colorpower, spread, keep, moisture \
+	sql = "SELECT Brand, Product, Color, Price, Image, colorpower, spread, keep, moisture, R, G, B \
 		   FROM deepstick.products \
 		   WHERE label_one='" + label_one + "' AND label_two='" + label_two +"'"
 	row = db_class.executeAll(sql)
 
 	CosSim = CosSimilarity.CosSimilarity(row)
-
 	row = CosSim.get_recommendations(color_name)
-
+	print('---------cosin----------')
+	print(row)
 	data =[]
 	for i in range(0,7):
 		data.append(dict(row.iloc[i]))
-
+	print(data)
 	return render_template('/product.html',
 							resultData=data,
 							size=len(data))

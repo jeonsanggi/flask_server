@@ -10,8 +10,10 @@ bp = Blueprint('user', __name__, url_prefix='/user')
 def log():
     userlog = Userlog.UserLog()
     db_class = dbModule.Database()
-    
+
+
     recommend = userlog.recommend(session['user_id'])
+    print(recommend)
     print("-------------사용자 추천--------")
     data=[]
     for color in recommend:

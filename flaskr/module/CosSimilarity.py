@@ -6,8 +6,8 @@ class CosSimilarity():
     def __init__(self, df_dic):
         tmp = []
         self.df = pd.DataFrame(df_dic)
-        for a, b, c, d, e in zip(self.df['Price'],self.df['colorpower'],self.df['spread'],self.df['keep'], self.df['moisture']):
-            tmp.append([a,b,c,d,e ])
+        for a, b, c, d, e, f, g in zip(self.df['colorpower'],self.df['spread'],self.df['keep'], self.df['moisture'],self.df['R'],self.df['G'],self.df['B']):
+            tmp.append([a,b,c,d,e,f,g])
         self.cosine_sim = cosine_similarity(tmp)
         self.indices = pd.Series(self.df.index, index=self.df['Color'])
 
@@ -20,7 +20,6 @@ class CosSimilarity():
 
         # 유사도에 따라 립스틱들을 정렬합니다.
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-
         # 가장 유사한 7개의 립스틱을 받아옵니다.
         sim_scores = sim_scores[1:8]
 
